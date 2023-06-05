@@ -1,0 +1,48 @@
+default: -p html_report -p json_report -p uat -p local -p android --publish-quiet
+parallel: -p parallel_logs -p parallel_html_report -p parallel_json_report -p uat --publish-quiet
+
+#Logs
+excon_log: EXCON_LOG=true
+parallel_logs: --out logs/<%= ENV['TEST_LOCATION'] %>_<%= ENV['TEST_PLATFORM'] %>/<%= ENV['EXEC_TYPE'] %>/execution_log_<%= ENV['TEST_ENV_NUMBER'] %>.log
+
+# Reports
+html_report: --format pretty --format html --out=reports/features_report.html
+json_report: --format pretty --format json --out=reports/features_report.json
+parallel_html_report: --format pretty --format html --out reports/features/<%= ENV['TEST_LOCATION'] %>_<%= ENV['TEST_PLATFORM'] %>/<%= ENV['EXEC_TYPE'] %>/report_<%= ENV['TEST_ENV_NUMBER'] %>.html
+parallel_json_report: --format pretty --format json --out reports/features/<%= ENV['TEST_LOCATION'] %>_<%= ENV['TEST_PLATFORM'] %>/<%= ENV['EXEC_TYPE'] %>/report_<%= ENV['TEST_ENV_NUMBER'] %>.json
+rerun_html_report: --format pretty --format html --out reports/features/<%= ENV['TEST_LOCATION'] %>_<%= ENV['TEST_PLATFORM'] %>/<%= ENV['EXEC_TYPE'] %>/rerun_<%= ENV['TEST_ENV_NUMBER'] %>.html
+rerun_json_report: --format pretty --format json --out reports/features/<%= ENV['TEST_LOCATION'] %>_<%= ENV['TEST_PLATFORM'] %>/<%= ENV['EXEC_TYPE'] %>/rerun_<%= ENV['TEST_ENV_NUMBER'] %>.json
+dry_run_report: -q -r env.rb --dry-run --format json --out=reports/features_report.json
+
+# Retry
+no_retry: NO_RETRY=true
+
+# Partners
+disable_csb: DISABLE_CSB=true
+disable_ext: DISABLE_EXT=true
+disable_fst: DISABLE_FST=true
+disable_mzl: DISABLE_MZL=true
+
+# Environments
+dev: ENVIRONMENT_TYPE=dev
+ephemer: ENVIRONMENT_TYPE=ephemer
+uat: ENVIRONMENT_TYPE=uat
+prd: ENVIRONMENT_TYPE=prd
+
+# Suites
+suite_app: SUITE_TYPE=app
+
+# Test Location
+local: TEST_LOCATION=local
+saucelabs: TEST_LOCATION=saucelabs
+location_all: TEST_LOCATION=all
+
+# Platform
+ios: TEST_PLATFORM=ios
+android: TEST_PLATFORM=android
+platform_all: TEST_PLATFORM=all
+
+# Execution Type
+bvt: EXEC_TYPE=bvt
+regression: EXEC_TYPE=regression
+execution_all: EXEC_TYPE=all

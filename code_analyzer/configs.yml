@@ -1,0 +1,67 @@
+Layout/EndOfLine:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 550
+
+Layout/LineEndStringConcatenationIndentation:
+  EnforcedStyle: indented
+  IndentationWidth: 2
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/ModuleLength:
+  Max: 200
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/AbcSize:
+  Max: 45
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Naming/VariableName:
+  Enabled: false
+
+Naming/MethodName:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Naming/ClassAndModuleCamelCase:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Security/Eval:
+  Enabled: false
+
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false
